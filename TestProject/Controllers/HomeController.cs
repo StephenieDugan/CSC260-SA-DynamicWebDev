@@ -1,8 +1,8 @@
-﻿using ClassProject.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TestProject.Models;
 
-namespace ClassProject.Controllers
+namespace TestProject.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,11 +20,17 @@ namespace ClassProject.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["Title"] = "Privacy set from Controller";
             return View();
         }
         public IActionResult Contact()
         {
             return View();
+        }
+        public IActionResult Yahoo()
+        {
+
+            return Redirect("https://yahoo.com");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,8 +1,8 @@
-﻿using ClassProject.Models;
+﻿using AboutMeProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ClassProject.Controllers
+namespace AboutMeProject.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,11 +18,12 @@ namespace ClassProject.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Past()
         {
             return View();
         }
-        public IActionResult Contact()
+
+        public IActionResult Future()
         {
             return View();
         }
