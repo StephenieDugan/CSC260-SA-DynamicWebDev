@@ -15,6 +15,7 @@ namespace AboutMeProject.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
