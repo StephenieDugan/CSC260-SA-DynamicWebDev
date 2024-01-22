@@ -1,0 +1,27 @@
+﻿@model VideoGame
+
+@if (Model == null)
+{
+    <h2> no game provided </h2>
+}
+else
+{
+    
+            <h3> @Model.Title</h3>
+            <h3> @Model.Year</h3>
+            <h3> @Model.Rating</h3>
+            <img src="@Model.Image" width="200" />
+            <input type="hidden" name="id" value="@Model.Id" />
+
+            @if (Model.ReleaseDate.HasValue)
+            {
+                @Model.ReleaseDate.Value.ToShortDateString()
+                ; //5/14/2024
+                  //if returning a game
+                  //loan date = null;
+            }
+       
+    
+   
+}
+
