@@ -3,22 +3,26 @@
 <h1>Game Collection</h1>
 @if (Model == null || Model.Count() == 0)
 {
-    <h2> no movies provided</h2>
+    <h2> no games provided</h2>
 }
 else
 {
-    foreach (VideoGame m in Model)
-    {
-        <div class="row">
-        <div class="col-4">
-        <partial name="_VideoGamePartialView.cshtml" for="@m" />
+    <h4>@TempData["Success"]</h4>
+
+    <div class="row">
+
+        @foreach (VideoGame m in Model)
+        {
+            <div class="col-4">
+
+                <partial name="_VideoGamePartialView.cshtml" for="@m" />
             </div>
-        </div>
-       
-    }
+        }
+
+    </div>
 }
 
-                @* <div class="col-4">
+@* <div class="col-4">
         <h3>@m.Title</h3>
         <h3>@m.Year</h3>
         <h3>@m.Rating</h3>

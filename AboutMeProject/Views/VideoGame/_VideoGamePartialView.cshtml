@@ -6,22 +6,40 @@
 }
 else
 {
-    
-            <h3> @Model.Title</h3>
-            <h3> @Model.Year</h3>
-            <h3> @Model.Rating</h3>
-            <img src="@Model.Image" width="200" />
-            <input type="hidden" name="id" value="@Model.Id" />
 
-            @if (Model.ReleaseDate.HasValue)
+    <h3> @Model.Title</h3>
+    <h3> @Model.Year</h3>
+    <h3> @Model.Rating</h3>
+    <img src="@Model.Image" width="200" />
+    <input type="hidden" name="id" value="@Model.Id" />
+    <hr />
+
+    <a asp-controller="VideoGame" asp-action="Edit" asp-route-Id="@Model.Id"
+       class="btn btn-secondary mx-2">
+        <i class="bi bi-wrench"></i> Edit
+
+    </a>
+    <hr />
+    <a asp-controller="VideoGame" asp-action="Delete" asp-route-Id="@Model.Id"
+       class="btn btn-secondary mx-2">
+        <i class="bi bi-trash3"></i> Delete
+
+    </a>
+    <hr />
+    <br />
+
+
+
+
+    @*  @if (Model.ReleaseDate.HasValue)
             {
                 @Model.ReleaseDate.Value.ToShortDateString()
                 ; //5/14/2024
                   //if returning a game
                   //loan date = null;
-            }
-       
-    
-   
+            } *@
+
+
+
 }
 
