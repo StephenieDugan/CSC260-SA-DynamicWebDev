@@ -19,6 +19,11 @@ namespace AboutMeProject.Controllers
             
             return View();
         }
+        public IActionResult AboutMe()
+        {
+            
+            return View();
+        }
 
         public IActionResult Past()
         {
