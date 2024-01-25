@@ -14,7 +14,8 @@ namespace AboutMeProject.Models
         public string? Title { get; set; }
         public string? Platform { get; set; }
         public string? Genre { get; set; }
-        [Range(1,5, ErrorMessage ="Rating must be between 1 and 5")]
+
+        //[Range(1,5, ErrorMessage ="Rating must be between 1 and 5")]
         public string? Rating { get; set; }
 
         [Required]
