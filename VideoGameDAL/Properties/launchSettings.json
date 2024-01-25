@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "AboutMeProject": {
+    "VideoGameDAL": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
