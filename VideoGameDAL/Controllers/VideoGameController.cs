@@ -1,7 +1,7 @@
-﻿using AboutMeProject.Models;
+﻿using VideoGameDAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AboutMeProject.Controllers
+namespace VideoGameDAL.Controllers
 {
     public class VideoGameController : Controller
     {

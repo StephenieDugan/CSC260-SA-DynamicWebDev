@@ -1,7 +1,7 @@
-﻿using AboutMeProject.Validators;
+﻿using VideoGameDAL.Validators;
 using System.ComponentModel.DataAnnotations;
 
-namespace AboutMeProject.Models
+namespace VideoGameDAL.Models
 {
     [EightiesGameRatings]
     public class VideoGame

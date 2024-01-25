@@ -1,9 +1,9 @@
-﻿using AboutMeProject.Models;
+﻿using VideoGameDAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Drawing;
 
-namespace AboutMeProject.Controllers
+namespace VideoGameDAL.Controllers
 {
     public class HomeController : Controller
     {

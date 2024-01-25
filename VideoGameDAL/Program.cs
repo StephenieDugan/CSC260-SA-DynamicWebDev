@@ -1,4 +1,4 @@
-namespace AboutMeProject
+namespace VideoGameDAL
 {
     public class Program
     {

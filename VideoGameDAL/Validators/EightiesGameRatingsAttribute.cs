@@ -1,7 +1,7 @@
-﻿using AboutMeProject.Models;
+﻿using VideoGameDAL.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace AboutMeProject.Validators
+namespace VideoGameDAL.Validators
 {
     //custom validation across fields or models
     //must end with attribute

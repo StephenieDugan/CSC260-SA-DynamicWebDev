@@ -1,4 +1,4 @@
-namespace AboutMeProject.Models
+namespace VideoGameDAL.Models
 {
     public class ErrorViewModel
     {
