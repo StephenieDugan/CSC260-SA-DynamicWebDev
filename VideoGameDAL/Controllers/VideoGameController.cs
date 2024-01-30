@@ -118,7 +118,7 @@ namespace VideoGameDAL.Controllers
             {
                 return View("MultGames", dal.GetCollection());
             }
-            return View("MultGames", dal.GetCollection().Where(x => x.Title.ToLower().Contains(key.ToLower())));
+            return View("MultGames", dal.SearchForGames(key));
         }
     }
 }

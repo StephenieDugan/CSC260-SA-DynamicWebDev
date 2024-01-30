@@ -29,6 +29,11 @@ namespace VideoGameDAL.data
         {
             return gameList;
         }
+        public IEnumerable<VideoGame> SearchForGames(string key)
+        {
+            return gameList.Where(x => x.Title.ToLower().Contains(key.ToLower()));
+        }
+        
         public void RemoveGame(int? id)
         {
             VideoGame? foundGame = GetGame(id);

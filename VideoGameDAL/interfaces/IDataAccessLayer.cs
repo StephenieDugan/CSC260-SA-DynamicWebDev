@@ -13,5 +13,6 @@ namespace VideoGameDAL.interfaces
         void UpdateGame(VideoGame game);
         void LoanGame(int id, string name);
         void ReturnGame(int id);
+        IEnumerable<VideoGame> SearchForGames(string key);
     }
 }
