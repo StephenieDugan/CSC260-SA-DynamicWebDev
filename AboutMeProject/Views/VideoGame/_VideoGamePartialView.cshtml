@@ -21,7 +21,7 @@ else
     {
         <form asp-controller="VideoGame" asp-action="Loaned" method="post">
 
-            <label asp-for="LoanedTo">Loan to:</label>
+            <label>Loan to:</label>
             <input name="name" asp-action="Loaned" class="form-control" />
             <input name="g" asp-for="Id" asp-action="Loaned" type="hidden" />
             <button type="submit" class="btn btn-secondary">Loan</button>

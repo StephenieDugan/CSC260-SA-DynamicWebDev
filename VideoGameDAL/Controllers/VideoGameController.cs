@@ -111,6 +111,15 @@ namespace VideoGameDAL.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Search(string key)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                return View("MultGames", dal.GetCollection());
+            }
+            return View("MultGames", dal.GetCollection().Where(x => x.Title.ToLower().Contains(key.ToLower())));
+        }
     }
 }
 
