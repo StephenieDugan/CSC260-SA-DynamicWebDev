@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>@ViewData["Title"]</h1>
+@if (!string.IsNullOrEmpty(ViewBag.Adj1) && !string.IsNullOrEmpty(ViewBag.Nat1) && 
+!string.IsNullOrEmpty(ViewBag.Pers1) && !string.IsNullOrEmpty(ViewBag.Noun1) && 
+!string.IsNullOrEmpty(ViewBag.Adj2) && !string.IsNullOrEmpty(ViewBag.Noun2) && 
+!string.IsNullOrEmpty(ViewBag.Adj3) && !string.IsNullOrEmpty(ViewBag.Adj4) && 
+!string.IsNullOrEmpty(ViewBag.Noun3) && !string.IsNullOrEmpty(ViewBag.Noun4) && 
+!string.IsNullOrEmpty(ViewBag.Num1) && !string.IsNullOrEmpty(ViewBag.Sha1) && 
+!string.IsNullOrEmpty(ViewBag.food1) && !string.IsNullOrEmpty(ViewBag.food2) && !string.IsNullOrEmpty(ViewBag.Num2))
+{
+
+    <h1> Pizza was invented by a <span style="color:hotpink;">@ViewBag.Adj1 @ViewBag.Nat1</span> chef named <span style="color:hotpink;">@ViewBag.Pers1</span>. To make a pizza, you need </h1>
+    <h1> to take a lump of <span style="color:hotpink;">@ViewBag.Noun1</span>, and make a thin, round <span style="color:hotpink;">@ViewBag.Adj2 @ViewBag.Noun2</span>. Then you cover it with</h1>
+    <h1> <span style="color:hotpink;">@ViewBag.Adj3</span> sauce, <span style="color:hotpink;">@ViewBag.Adj4</span> cheese, and fresh chopped <span style="color:hotpink;">@ViewBag.Noun3</span>. Next you have to bake it in a </h1>
+    <h1> very  hot <span style="color:hotpink;">@ViewBag.Noun4</span>. When it is done, cut it into <span style="color:hotpink;">@ViewBag.Num1</span> pieces. Some kids like <span style="color:hotpink;">@ViewBag.food1</span> pizza</h1>
+    <h1> the best, but my favourite is the <span style="color:hotpink;">@ViewBag.food2</span> pizza. If I could, I would eat pizza <span style="color:hotpink;">@ViewBag.Num2</span> times a day!</h1>
+    <p>Wanna try something else?  <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="MadLibs"> Click me!</a></p>
+}
+else
+{
+    <div class="text-danger">
+        <h2>I feel like your'e missing something....</h2>
+        <p>Let's try again. <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="MadLibs"> Click me!</a></p>
+
+    </div>
+
+}
