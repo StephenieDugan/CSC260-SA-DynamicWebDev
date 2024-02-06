@@ -29,6 +29,15 @@ namespace ValidationPractice.Controllers
             {
                 return RedirectToAction("Index");
             }
+            if(string.IsNullOrEmpty(p.Street) && string.IsNullOrEmpty(p.City) && string.IsNullOrEmpty(p.State) && string.IsNullOrEmpty(p.ZipCode)) 
+            {
+                return View();
+            }
+            if(p.IsAddressEmpty == false)
+            {
+                ModelState.AddModelError("StreetInfo", "All address fields must be filled");
+            }
+           
             return View();
         }
        

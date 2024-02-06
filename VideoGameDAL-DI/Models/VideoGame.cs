@@ -6,13 +6,15 @@ namespace VideoGameDAL.Models
     [EightiesGameRatings]
     public class VideoGame
     {
-        static int nextID = 0;
-        public int? Id { get; set; } = nextID++;
+        //static int nextID = 0;
+        [Key] // primary key
+        public int? Id { get; set; } //= nextID++;
 
         [Required(ErrorMessage ="Title is required dummy")]
         [MaxLength(214)]
         public string? Title { get; set; }
         public string? Platform { get; set; }
+        [Required]
         public string? Genre { get; set; }
 
         //[Range(1,5, ErrorMessage ="Rating must be between 1 and 5")]
