@@ -14,5 +14,6 @@ namespace VideoGameDAL.interfaces
         void LoanGame(int id, string name);
         void ReturnGame(int id);
         IEnumerable<VideoGame> SearchForGames(string key);
+        IEnumerable<VideoGame> FilterGames(string? rating,string? genre);
     }
 }

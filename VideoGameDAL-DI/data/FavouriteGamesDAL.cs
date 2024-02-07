@@ -1,4 +1,5 @@
-﻿using VideoGameDAL.interfaces;
+﻿using System.Xml.Linq;
+using VideoGameDAL.interfaces;
 using VideoGameDAL.Models;
 using VideoGameDAL_DI.data;
 
@@ -64,6 +65,11 @@ namespace VideoGameDAL.data
             //i = gameList.FindIndex(x => x.Id == id);
             //gameList[i].LoanDate = DateTime.Now;
             //gameList[i].LoanedTo = name;
+
+            VideoGame? foundGame = GetGame(id);
+            foundGame.LoanDate = DateTime.Now;
+            foundGame.LoanedTo = name;
+            db.Games.Update(foundGame); db.SaveChanges();
         }
         public void ReturnGame(int id)
         {
@@ -71,9 +77,36 @@ namespace VideoGameDAL.data
             //i = gameList.FindIndex(x => x.Id == id);
             //gameList[i].LoanDate = null;
             //gameList[i].LoanedTo = null;
+            VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault();
+            foundGame.LoanDate = null;
+            foundGame.LoanedTo = null;
+            db.Update(foundGame); db.SaveChanges();
+
         }
 
+        public IEnumerable<VideoGame> FilterGames(string? rating, string? genre)
+        {
+            if (genre == null)
+                genre = string.Empty;
+            if (rating == null)
+                rating = string.Empty;
 
+            if (genre == "" && rating == string.Empty)
+            {
+                return GetCollection();
+            }
+
+            IEnumerable<VideoGame> listGamesbyGenre = GetCollection().Where(m => (!string.IsNullOrEmpty(m.Genre) && m.Genre.ToLower().Contains(genre.ToLower()))).ToList();
+            IEnumerable<VideoGame> listGamesbyRating = listGamesbyGenre.Where(m => (!string.IsNullOrEmpty(m.Rating) && m.Rating.ToLower().Contains(rating.ToLower()))).ToList();
+
+            if (listGamesbyRating.Count() == 0)
+                return listGamesbyGenre;
+
+            return listGamesbyRating;
+
+
+
+        }
 
     }
 }

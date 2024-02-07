@@ -14,6 +14,11 @@ namespace VideoGameDAL.Controllers
         {
             dal = indal;
         }
+        public IActionResult Filter(string rating, string genre)
+        {
+            return View("MultGames", dal.FilterGames(rating, genre));
+            
+        }
 
         [HttpGet]//loads edit page
         public IActionResult Delete(int? id)
@@ -103,13 +108,17 @@ namespace VideoGameDAL.Controllers
         [HttpPost]
         public IActionResult Loaned(int g, string name)
         {
-            dal.LoanGame(g, name);
+            VideoGame? videoGame = dal.GetGame(g);
+            videoGame.LoanDate = DateTime.Now;
+            videoGame.LoanedTo = name;
             return RedirectToAction("MultGames", "VideoGame");
         }
         [HttpPost]
-        public IActionResult Return(int g)
+        public IActionResult Return(int? g)
         {
-            dal.ReturnGame(g);
+            VideoGame? videoGame = dal.GetGame(g);
+            videoGame.LoanDate = null;
+            videoGame.LoanedTo = null;
             return RedirectToAction("MultGames", "VideoGame");
         }
 

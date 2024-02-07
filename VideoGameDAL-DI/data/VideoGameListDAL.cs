@@ -76,7 +76,28 @@ namespace VideoGameDAL.data
             //gameList[i].LoanedTo = null;
         }
 
+        public IEnumerable<VideoGame> FilterGames(string? rating, string? genre)
+        {
+            if(genre == null)
+                genre = string.Empty;
+            if(rating == null) 
+                rating = string.Empty;
+
+            if(genre=="" && rating == string.Empty)
+            {
+                return GetCollection();
+            }
+
+            IEnumerable<VideoGame> listGamesbyGenre = GetCollection().Where(m => (!string.IsNullOrEmpty(m.Genre) && m.Genre.ToLower().Contains(genre.ToLower()))).ToList();
+            IEnumerable<VideoGame> listGamesbyRating = listGamesbyGenre.Where(m => (!string.IsNullOrEmpty(m.Rating) && m.Rating.ToLower().Contains(rating.ToLower()))).ToList();
+
+            if (listGamesbyRating.Count() == 0)
+                return listGamesbyGenre;
+
+            return listGamesbyRating;
 
 
+
+        }
     }
 }
