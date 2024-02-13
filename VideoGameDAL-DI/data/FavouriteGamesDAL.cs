@@ -61,26 +61,28 @@ namespace VideoGameDAL.data
 
         public void LoanGame(int id, string name)
         {
-            //int i;
-            //i = gameList.FindIndex(x => x.Id == id);
-            //gameList[i].LoanDate = DateTime.Now;
-            //gameList[i].LoanedTo = name;
+            
+            VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault();
+            if (foundGame != null)
+            {
+                foundGame.LoanDate = DateTime.Now;
+                foundGame.LoanedTo = name;
+                db.Games.Update(foundGame);
+            }
 
-            VideoGame? foundGame = GetGame(id);
-            foundGame.LoanDate = DateTime.Now;
-            foundGame.LoanedTo = name;
-            db.Games.Update(foundGame); db.SaveChanges();
+            db.SaveChanges();
         }
         public void ReturnGame(int id)
         {
-            //int i;
-            //i = gameList.FindIndex(x => x.Id == id);
-            //gameList[i].LoanDate = null;
-            //gameList[i].LoanedTo = null;
+          
             VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault();
-            foundGame.LoanDate = null;
-            foundGame.LoanedTo = null;
-            db.Update(foundGame); db.SaveChanges();
+            if (foundGame != null)
+            {
+                foundGame.LoanDate = null;
+                foundGame.LoanedTo = null;
+                db.Update(foundGame);
+            }
+            db.SaveChanges();
 
         }
 

@@ -108,17 +108,13 @@ namespace VideoGameDAL.Controllers
         [HttpPost]
         public IActionResult Loaned(int g, string name)
         {
-            VideoGame? videoGame = dal.GetGame(g);
-            videoGame.LoanDate = DateTime.Now;
-            videoGame.LoanedTo = name;
+            dal.LoanGame(g, name);
             return RedirectToAction("MultGames", "VideoGame");
         }
         [HttpPost]
-        public IActionResult Return(int? g)
+        public IActionResult Return(int g)
         {
-            VideoGame? videoGame = dal.GetGame(g);
-            videoGame.LoanDate = null;
-            videoGame.LoanedTo = null;
+            dal.ReturnGame(g);
             return RedirectToAction("MultGames", "VideoGame");
         }
 

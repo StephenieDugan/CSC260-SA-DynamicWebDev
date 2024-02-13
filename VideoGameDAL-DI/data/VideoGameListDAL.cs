@@ -1,4 +1,5 @@
-﻿using VideoGameDAL.interfaces;
+﻿using System.Xml.Linq;
+using VideoGameDAL.interfaces;
 using VideoGameDAL.Models;
 using VideoGameDAL_DI.data;
 
@@ -62,18 +63,29 @@ namespace VideoGameDAL.data
 
         public void LoanGame(int id, string name)
         {
-            //int i;
-            //i = gameList.FindIndex(x => x.Id == id);
-            //gameList[i].LoanDate = DateTime.Now;
-            //gameList[i].LoanedTo = name;
-            //db.Games.Update(GetGame(id));
+            
+            VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault();
+            if (foundGame != null)
+            {
+                foundGame.LoanDate = DateTime.Now;
+                foundGame.LoanedTo = name;
+                db.Games.Update(foundGame);
+            }
+
+            db.SaveChanges();
         }
         public void ReturnGame(int id)
         {
-            //int i;
-            //i = gameList.FindIndex(x => x.Id == id);
-            //gameList[i].LoanDate = null;
-            //gameList[i].LoanedTo = null;
+           
+            VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault();
+            if (foundGame != null)
+            {
+                foundGame.LoanDate = null;
+                foundGame.LoanedTo = null;
+                db.Games.Update(foundGame);
+            }
+
+            db.SaveChanges();
         }
 
         public IEnumerable<VideoGame> FilterGames(string? rating, string? genre)
