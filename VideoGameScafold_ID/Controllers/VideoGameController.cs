@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VideoGameScafoldingID.interfaces;
 using VideoGameScafoldingID.data;
+using System.Security.Claims;
 
 namespace VideoGameScafoldingID.Controllers
 {
@@ -93,7 +94,8 @@ namespace VideoGameScafoldingID.Controllers
             }
             if (ModelState.IsValid)
             {
-                dal.AddGame(g);
+                string UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                dal.AddGame(g, UserID);
                 return RedirectToAction("MultGames", "VideoGame");
 
             }

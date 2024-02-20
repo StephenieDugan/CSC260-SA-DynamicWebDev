@@ -23,8 +23,9 @@ namespace VideoGameScafoldingID.data
         //    new VideoGame("Halo: The Master Chief Collection"," Xbox One, Xbox Series X|S","Action, Adventure, First Person Shooter","Mature" , 2019,"https://upload.wikimedia.org/wikipedia/en/a/a3/Halo_TMCC_KeyArt_Vert_2019.png"),
 
         //};
-        public void AddGame(VideoGame game)
+        public void AddGame(VideoGame game, string UserID)
         {
+            game.UserID = UserID;
             db.Games.Add(game);
             db.SaveChanges();
         }

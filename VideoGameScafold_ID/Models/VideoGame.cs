@@ -11,6 +11,9 @@ namespace VideoGameScafoldingID.Models
         [Key] // primary key
         public int? Id { get; set; } //= nextID++;
 
+        [MaxLength(450)]
+        public String? UserID { get; set; }
+
         [Required(ErrorMessage ="Title is required dummy")]
         [MaxLength(214)]
         public string? Title { get; set; }

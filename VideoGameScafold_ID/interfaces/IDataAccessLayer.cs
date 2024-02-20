@@ -6,7 +6,7 @@ namespace VideoGameScafoldingID.interfaces
     {
 
         IEnumerable<VideoGame> GetCollection();
-        void AddGame(VideoGame game);
+        void AddGame(VideoGame game, string UserID);
         void RemoveGame(int? id);
         VideoGame? GetGame(int? id);
 

@@ -23,8 +23,9 @@ namespace VideoGameScafoldingID.data
 
 
         //};
-        public void AddGame(VideoGame game)
+        public void AddGame(VideoGame game,string UserID)
         {
+            game.UserID = UserID;
             db.Games.Add(game);
             db.SaveChanges();
         }
