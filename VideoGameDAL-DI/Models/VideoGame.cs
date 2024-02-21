@@ -17,8 +17,12 @@ namespace VideoGameDAL.Models
         [MaxLength(214)]
         public string? Title { get; set; }
         public string? Platform { get; set; }
+       
         [Required]
         public string? Genre { get; set; }
+      
+        //public int? genreID {get; set;}
+        //public Genre? Genre {get; set;}
 
         //[Range(1,5, ErrorMessage ="Rating must be between 1 and 5")]
         public string? Rating { get; set; }

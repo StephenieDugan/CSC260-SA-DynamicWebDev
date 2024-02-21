@@ -30,6 +30,12 @@
             <span asp-validation-for="Genre" class="error-messages"></span>
 
         </div>
+        @*<div class="mb-3">
+            <label asp-for="genreID"> </label>
+            <select asp-for="genreID" asp-items ="@ViewBag.Genres"></select>
+            <span asp-validation-for="genreID" class="text-danger"></span>
+
+        </div>*@
         <div class="mb-3">
             <label asp-for="Rating"> </label>
             <input asp-for="Rating" class="form-control" />

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using VideoGameDAL.interfaces;
 using VideoGameDAL.data;
+using VideoGameDAL_DI.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace VideoGameDAL.Controllers
 {
@@ -74,6 +76,9 @@ namespace VideoGameDAL.Controllers
         public IActionResult Add()
         {
             // Movie m = new Movie("Shrek 2", 2004, 5, "https://tse2.mm.bing.net/th?id=OIP.eli-qDZMTCAQLfUJsGngPgAAAA&pid=Api&P=0&h=220");
+
+            //List<Genre> listGenres = dal.GetGenres();
+            //ViewBag.Genres = new SelectList(listGenres,"Id","Title");
             return View();
         }
 

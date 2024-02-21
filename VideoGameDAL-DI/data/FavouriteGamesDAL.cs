@@ -2,6 +2,7 @@
 using VideoGameDAL.interfaces;
 using VideoGameDAL.Models;
 using VideoGameDAL_DI.data;
+using VideoGameDAL_DI.Models;
 
 
 namespace VideoGameDAL.data
@@ -30,12 +31,12 @@ namespace VideoGameDAL.data
         }
         public VideoGame? GetGame(int? id)
         {
-            VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault();
+            VideoGame? foundGame = db.Games.Where(m => m.Id == id).FirstOrDefault(); //.....id.Include(m => m.Genre).First.......
             return foundGame;
         }
         public IEnumerable<VideoGame> GetCollection()
         {
-            return db.Games;
+            return db.Games;//.....Games.Include(m => m.Genre).ToList();.......
         }
         public IEnumerable<VideoGame> SearchForGames(string key)
         {
@@ -110,5 +111,9 @@ namespace VideoGameDAL.data
 
         }
 
+        public List<Genre> GetGenres()
+        {
+            return db.Genres.ToList(); 
+        }
     }
 }

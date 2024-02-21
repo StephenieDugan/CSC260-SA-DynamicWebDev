@@ -1,4 +1,5 @@
 ﻿using VideoGameDAL.Models;
+using VideoGameDAL_DI.Models;
 
 namespace VideoGameDAL.interfaces
 {
@@ -15,5 +16,6 @@ namespace VideoGameDAL.interfaces
         void ReturnGame(int id);
         IEnumerable<VideoGame> SearchForGames(string key);
         IEnumerable<VideoGame> FilterGames(string? rating,string? genre);
+        List<Genre> GetGenres();
     }
 }
