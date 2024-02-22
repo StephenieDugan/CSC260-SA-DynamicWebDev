@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VideoGame>
+
+<h1>Game Collection</h1>
+@if (Model == null || Model.Count() == 0)
+{
+    <h2> Games: 0</h2>
+    <h2> no games provided</h2>
+}
+else
+{
+    <h4>@TempData["Success"]</h4>
+    <form class="d-flex" asp-controller="VideoGame" asp-action="Search" method="post">
+        <input name="key" class="form-control me-2" type="search" placeholder="Search" />
+        <button class="btn btn-secondary my-2" type="submit">Search</button>
+    </form>
+    <form asp-controller="VideoGame" asp-action="Filter" method="post">
+        <input name="Rating" placeholder="Rating"/>
+        <input name="Genre" placeholder="Genre"/>
+        <button class="btn btn-warning my-2" type="submit">Filter</button>
+    </form>
+    <h2> Games: @Model.Count()</h2>
+    <div class="row">
+
+        @foreach (VideoGame m in Model)
+        {
+            <div class="col-4">
+
+                <partial name="_VideoGamePartialView.cshtml" for="@m" />
+            </div>
+        }
+
+    </div>
+}
+
+@* <div class="col-4">
+        <h3>@m.Title</h3>
+        <h3>@m.Year</h3>
+        <h3>@m.Rating</h3>
+        LoanedDate.Value.ToShortDateString()
+
+        </div>*@
+

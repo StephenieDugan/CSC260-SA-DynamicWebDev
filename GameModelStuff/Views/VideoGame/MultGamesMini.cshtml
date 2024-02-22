@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MovieMini>
+<h1>Game List Mini</h1>
+@if(Model == null)
+{
+    <h2>No games provided.</h2>
+}
+else
+{
+    foreach(MovieMini movie in Model)
+    {
+        <h3>@movie.Title</h3>
+        <h3>@movie.Year</h3>
+        <h3>@movie.Platform</h3>
+        <h3>@movie.Rating</h3>
+        <h3>@movie.Genre</h3>
+    }
+}

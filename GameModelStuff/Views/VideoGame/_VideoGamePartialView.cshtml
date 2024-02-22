@@ -1,0 +1,72 @@
+﻿@model VideoGame
+
+@if (Model == null)
+{
+    <h2> no games provided </h2>
+}
+else
+{
+
+    <img src="@Model.Image" width="200" />
+    <h3> @Model.Title</h3>
+    <h3> @Model.Year</h3>
+    <h3> Platforms: @Model.Platform</h3>
+    <h3> Genre: @Model.Genre</h3>
+    <h3> Rating: @Model.Rating</h3>
+    //<h3> @Model.Id</h3>
+    <hr/>
+    <br/>
+    <input type="hidden" name="id" value="@Model.Id" /> 
+    @if (Model.LoanDate == null)
+    {
+        <form asp-controller="VideoGame" asp-action="Loaned" method="post">
+
+            <label asp-for="LoanedTo">Loan to:</label>
+            <input name="name" asp-action="Loaned" class="form-control" />
+            <input name="g" asp-for="Id" asp-action="Loaned" type="hidden" />
+            <button type="submit" class="btn btn-secondary">Loan</button>
+        </form>
+    }
+    else
+    {
+        <form asp-controller="VideoGame" asp-action="Return" method="post">
+
+           <h3>Loaned out to: @Model.LoanedTo</h3>
+           <h3>Loan Date: @Model.LoanDate</h3>
+            <input name="g" asp-for="Id" asp-action="Return" type="hidden" />
+            <button type="submit" class="btn btn-secondary">Return</button>
+        </form>
+    }
+    <hr />
+    <br />
+
+    <a asp-controller="VideoGame" asp-action="Edit" asp-route-Id="@Model.Id"
+       class="btn btn-secondary mx-2">
+        <i class="bi bi-wrench"></i> Edit
+
+    </a>
+    <hr />
+    <br />
+    <a asp-controller="VideoGame" asp-action="Delete" asp-route-Id="@Model.Id"
+       class="btn btn-secondary mx-2">
+        <i class="bi bi-trash3"></i> Delete
+
+    </a>
+    <hr />
+    <br />
+
+
+
+
+    @*  @if (Model.ReleaseDate.HasValue)
+            {
+                @Model.ReleaseDate.Value.ToShortDateString()
+                ; //5/14/2024
+                  //if returning a game
+                  //loan date = null;
+            } *@
+
+
+
+}
+

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoGameDAL-DI", "VideoGam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoGameScafold_ID", "VideoGameScafold_ID\VideoGameScafold_ID.csproj", "{47D1F395-DCD4-4870-ADC7-E79A8349C7C8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameModelStuff", "GameModelStuff\GameModelStuff.csproj", "{935A0A9C-7540-46D9-8744-2DDB7771430D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{47D1F395-DCD4-4870-ADC7-E79A8349C7C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D1F395-DCD4-4870-ADC7-E79A8349C7C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D1F395-DCD4-4870-ADC7-E79A8349C7C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935A0A9C-7540-46D9-8744-2DDB7771430D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935A0A9C-7540-46D9-8744-2DDB7771430D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935A0A9C-7540-46D9-8744-2DDB7771430D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935A0A9C-7540-46D9-8744-2DDB7771430D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
