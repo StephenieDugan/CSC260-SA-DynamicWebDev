@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ValidationPractice.Validators;
 
+[ProfileAddressAttribute]
 public class ProfileModel
 {
     [Required(ErrorMessage = "Name is required")]

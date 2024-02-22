@@ -7,12 +7,16 @@ namespace ValidationPractice.Validators
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-            var game = (ProfileModel)validationContext.ObjectInstance;
-            if ()
+            var profile = (ProfileModel)validationContext.ObjectInstance;
+
+            if (profile.IsAddressEmpty || (!string.IsNullOrWhiteSpace(profile.Street)
+                && !string.IsNullOrWhiteSpace(profile.City) && !string.IsNullOrWhiteSpace(profile.State)
+                && !string.IsNullOrWhiteSpace(profile.ZipCode)))
             {
-                return new ValidationResult("games can't be bad in the 80's");
+                return ValidationResult.Success;
             }
-            return ValidationResult.Success;
+
+            return new ValidationResult("Address should be completely filled out.");
         }
     }
 }

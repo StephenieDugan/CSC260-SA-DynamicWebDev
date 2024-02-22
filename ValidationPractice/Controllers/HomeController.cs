@@ -33,10 +33,7 @@ namespace ValidationPractice.Controllers
             {
                 return View();
             }
-            if(p.IsAddressEmpty == false)
-            {
-                ModelState.AddModelError("StreetInfo", "All address fields must be filled");
-            }
+           
            
             return View();
         }
